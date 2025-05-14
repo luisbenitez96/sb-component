@@ -16,6 +16,9 @@ interface Props {
   AllCaps?: boolean;
   color?: "text-primary" | "text-secondary" | "text-tertiary";
   fontColor?: string;
+
+  /** Color personalizado de la fuente  */
+  backgroundColor?: string;
 }
 
 export const MyLabel = ({
@@ -24,12 +27,14 @@ export const MyLabel = ({
   AllCaps = false,
   color = "text-primary",
   fontColor,
+  backgroundColor = "transparent",
 }: Props) => {
   return (
     <span
       className={`${size} ${color} label `}
       style={{
         color: fontColor,
+        backgroundColor,
         textTransform: AllCaps ? "uppercase" : "none",
       }}>
       {label}
